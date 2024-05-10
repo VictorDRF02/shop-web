@@ -1,0 +1,54 @@
+<div class="row m-3 cont">
+    <h2>{{ !!data.id ? 'Editar' : 'Crear'}} Producto</h2>
+    <hr>
+    <!-- Name -->
+    <div class="form-floating mb-3 col-md-6 col-sm-12">
+        <input type="text" class="form-control" placeholder="Camiseta roja" [(ngModel)]="data.name" #name required />
+        <label class="ms-2">Nombre</label>
+    </div>
+    <!-- Price -->
+    <div class="form-floating mb-3 col-md-6 col-sm-12">
+        <input type="number" class="form-control" placeholder="49.99" [(ngModel)]="data.price" #price required />
+        <label class="ms-2">Precio</label>
+    </div>
+    <!-- Description -->
+    <div class="form-floating mb-3 description">
+        <textarea type="text" class="form-control h-100" placeholder="Queda muy bien para un paseo en..."
+            [(ngModel)]="data.description" #description required></textarea>
+        <label class="ms-2">Descripción</label>
+    </div>
+    <!-- Image -->
+    <div class="form-floating mb-3">
+        <input type="file" class="form-control" placeholder="" (change)="uploadFile($event)" #images required />
+        <label class="ms-2">Imagen</label>
+    </div>
+    <!-- Categories Select -->
+    <div class="form mb-3">
+        <label class="ms-2">Categorías</label>
+        @if (isLoading) {
+        <div class="spinner-border">
+            <span class="sr-only">Loading...</span>
+        </div>
+        }
+        <select name="categories" id="categories" class="form-select" multiple [(ngModel)]="data.categories">
+            @for (c of categories; track $index) {
+                @if (data.categories.includes(c.id || -1)) {
+                    <option [value]="c.id" selected>{{c.name}}</option>
+                } @else {
+                    <option [value]="c.id">{{c.name}}</option>
+                }
+            }
+        </select>
+    </div>
+    <!-- Buttons -->
+    <div class="col-md-6 col-sm-12 p-2">
+        <button class="w-100 btn btn-lg btn-primary" (click)="save()">
+            {{ !!data.id ? 'Editar' : 'Crear'}} Producto
+        </button>
+    </div>
+    <div class="col-md-6 col-sm-12 p-2">
+        <button class="w-100 btn btn-lg btn-secondary col-md-6 col-sm-12" (click)="close()">
+            Cancelar
+        </button>
+    </div>
+</div>

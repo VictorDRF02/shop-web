@@ -1,0 +1,46 @@
+:root,
+:host,
+.spxThemeOverride {
+  --color_principal: rgb(10, 74, 110);
+  --color_secondary: rgb(68, 141, 182);
+  --color_2: rgb(84, 120, 115);
+  --color_4: rgb(250, 250, 242);
+  --color_7: rgb(162, 216, 247);
+  --color_9: rgb(18, 133, 198);
+  --color_16: rgb(195, 213, 211);
+  --color_17: rgb(135, 171, 166);
+  --color_19: rgb(56, 80, 77);
+  --color_20: rgb(28, 40, 38);
+  --color_21: rgb(208, 227, 237);
+  --color_22: rgb(160, 198, 220);
+  --color_23: rgb(116, 170, 202);
+  --color_26: rgb(253, 253, 248);
+  --color_28: rgb(216, 216, 153);
+  --color_29: rgb(178, 178, 68);
+  --color_30: rgb(89, 89, 34);
+  --color_31: rgb(251, 246, 240);
+  --color_32: rgb(247, 236, 224);
+  --color_33: rgb(223, 179, 130);
+  --color_34: rgb(187, 121, 48);
+  --color_35: rgb(94, 60, 24);
+  --color_38: rgb(194, 209, 215);
+  --color_41: rgb(50, 104, 135);
+  --color_43: rgb(74, 179, 239);
+  --color_47: rgb(71, 119, 145);
+  --color_63: rgb(255, 254, 250);
+  --color_65: rgb(133, 164, 180);
+  --font_title: normal normal normal 88px/1.2em "eb garamond", serif;
+  --font_normal: normal normal normal 14px/1.79em "open sans", sans-serif;
+  --wix-ads-height: 50px;
+  --sticky-offset: 50px;
+  --wix-ads-top-height: 50px;
+  --site-width: 980px;
+  --above-all-z-index: 100000;
+  --portals-z-index: 100001;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --minViewportSize: 320;
+  --maxViewportSize: 1920;
+  --theme-spx-ratio: 1px;
+}
+

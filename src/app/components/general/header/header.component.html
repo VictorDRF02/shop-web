@@ -1,0 +1,39 @@
+<header class="d-flex justify-content-between align-items-center px-4 pt-3">
+  <!-- Tilte -->
+  <a [href]="homeLink">
+    <h1>Todo Compras</h1>
+  </a>
+  <div class="d-flex">
+    <!-- Cart Icon -->
+    <div id="cart" (click)="openCartModal()">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="0 0 197.7 166"
+        preserveAspectRatio="xMinYMax meet" data-hook="svg-icon-2">
+        <path
+          d="M197.9 55.9L169.9 127.4 64.5 127.4 27.6 29.8 0 29.8 0.2 16.7 36.5 16.7 73.4 114.3 160.9 114.3 183 55.9">
+        </path>
+        <circle cx="143.8" cy="153" r="13"></circle>
+        <circle cx="90.8" cy="153" r="13"></circle>
+        <text id="cart-number" text-anchor="middle" x="116" y="35" dy=".48em" font-size="80">
+          <!-- Products in the cart -->
+          {{ cartNumber }}
+        </text>
+      </svg>
+    </div>
+    <button class="btn" (click)="logout()"><i class="fa fa-sign-out-alt"></i></button>
+  </div>
+</header>
+<hr class="mx-5" />
+<!-- Link Menu -->
+<nav>
+  <ul class="list-unstyled m-0 p-0 d-flex justify-content-center">
+    <li class="py-0 px-3">
+      <a class="text-decoration-none fw-bold" [href]="homeLink">Tienda</a>
+    </li>
+    <li class="py-0 px-3">
+      <a class="text-decoration-none fw-bold" [href]="aboutLink">Acerca de</a>
+    </li>
+    <li class="py-0 px-3">
+      <a class="text-decoration-none fw-bold" [href]="contatLink">Contacto</a>
+    </li>
+  </ul>
+</nav>

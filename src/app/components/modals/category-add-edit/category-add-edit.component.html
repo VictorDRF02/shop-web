@@ -1,0 +1,32 @@
+<div class="row m-3 cont">
+    <h2>{{ !!data.id ? 'Editar' : 'Crear'}} Categoría</h2>
+    <hr>
+    <!-- Name -->
+    <div class="form-floating mb-3 col-md-6 col-sm-12">
+        <input type="text" class="form-control" placeholder="Camiseta roja" [(ngModel)]="data.name" #name />
+        <label class="ms-2">Nombre</label>
+    </div>
+    <!-- Image -->
+    <div class="form-floating mb-3 col-md-6 col-sm-12">
+        <input type="file" class="form-control" placeholder="" (change)="setImage($event)" #image />
+        <label class="ms-2">Imagen</label>
+    </div>
+    <!-- Description -->
+    <div class="form-floating mb-3 description">
+        <textarea type="text" class="form-control h-100" placeholder="Queda muy bien para un paseo en..."
+            [(ngModel)]="data.description" #description></textarea>
+        <label class="ms-2">Descripción</label>
+    </div>
+    <!-- Buttons -->
+    <div class="col-md-6 col-sm-12 p-2">
+        <button class="w-100 btn btn-lg btn-primary"
+            (click)="save()">
+            {{ !!data.id ? 'Editar' : 'Crear'}} Categoría
+        </button>
+    </div>
+    <div class="col-md-6 col-sm-12 p-2">
+        <button class="w-100 btn btn-lg btn-secondary col-md-6 col-sm-12" (click)="close()">
+            Cancelar
+        </button>
+    </div>
+</div>

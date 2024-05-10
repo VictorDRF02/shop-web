@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  min-height: 100vh;
+  
+  background-image: url("patternpad.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+$color_principal: rgb(10, 74, 110);
+$color_secondary: rgb(68, 141, 182);
+
+.price {
+  color: $color_secondary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: $color_principal;
+  font-family: "eb garamond", serif;
+}
+
+p {
+  font-family: "open sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $color_principal;
+}
+a:visited {
+  color: $color_principal;
+}
+a:hover {
+  color: $color_secondary;
+}
+
+.tag {
+  background-color: $color_secondary;
+}

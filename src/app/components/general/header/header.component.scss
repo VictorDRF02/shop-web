@@ -1,0 +1,47 @@
+header {
+  font: var(--font_normal);
+  color: var(--color_principal);
+
+  h1 {
+    font: normal normal normal 40px/1.25em "garamond", serif;
+    font-weight: 400;
+    margin: 0;
+    cursor: pointer;
+    color: var(--color_principal);
+  }
+
+  input[type="search"] {
+    border: none; /* Borde sutil para el campo de búsqueda */
+    border-bottom: 1px solid #ddd;
+  }
+  input:focus {
+    outline: none;
+    border-bottom: 1px solid#aaa;
+  }
+
+  #cart {
+    position: relative; /* Posicionamiento relativo para colocar el contador */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+nav {
+  font: var(--font_normal);
+  font-size: 1.2rem;
+  color: var(--color_principal);
+  ul {
+    li {
+      a {
+        color: var(--color_principal);
+      }
+      a:visited {
+        color: var(--color _principal);
+      }
+      a:hover {
+        color: var(--color_secondary);
+      }
+    }
+  }
+}

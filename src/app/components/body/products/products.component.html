@@ -1,0 +1,89 @@
+<main class="row mt-5">
+  <!-- Side Bar -->
+  <div class="col-lg-3 col-sm-12 ps-4">
+    <!-- Search Bar -->
+    <div class="input-group rounded">
+      <input type="text" class="form-control rounded" placeholder="¿Qué estás buscando?" [(ngModel)]="search" (keyup)="resetProductsParams()"/>
+      <span class="input-group-text border-0" id="search-addon" (click)="resetProductsParams()">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+    <hr>
+    <!-- Category List -->
+    <div class="d-flex justify-content-between">
+      <p>Categorías:</p>
+      @if (isAdmin) {
+      <div>
+        <button class="btn" (click)="openModal('add', 'Category')"><i
+            class="fa fa-plus"></i></button>
+      </div>
+      }
+    </div>
+    <ul class="p-0">
+      @if (isLoadingCategories) {
+        <div class="d-flex mt-5 justify-content-center">
+          <div class="spinner-border">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <p class="ms-3">Cargando categorías. Espere...</p>
+        </div>
+      } @else {
+        @for (c of categories; track $index) {
+        
+          <li [class]="'ps-4 d-flex justify-content-between ' + ((c == category) ? 'selected':'')" (click)="setCategory(c)">
+            {{ c.name }}
+            @if (isAdmin) {
+            <div>
+              <button class="btn" (click)="$event.preventDefault(); openModal('edit','Category', c)"><i
+                  class="fa fa-edit"></i></button>
+              <button class="btn" (click)="$event.preventDefault(); openModal('delete', 'Category', c)"><i
+                  class="fa fa-trash"></i></button>
+            </div>
+            }
+          </li>
+        
+        }
+      }
+    </ul>
+    <hr>
+  </div>
+  <!-- Main view -->
+  <div class="col-lg-9 col-sm-12">
+    <!-- Selected Category -->
+    <div class="w-100">
+      @if (isLoadingCategories) {
+        <div class="d-flex mt-5 justify-content-center">
+          <div class="spinner-border">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <p class="ms-3">Cargando categoría. Espere...</p>
+      </div>
+      } @else {
+        <img [src]="category?.image" alt="category" class="w-100 category-img" />
+        <h2 class="mt-1 px-5 py-2 d-flex justify-content-between"><span>{{ category?.name }}</span>
+          @if (isAdmin) {
+          <button class="btn" (click)="$event.preventDefault(); openModal('add', 'Product')"><i class="fa fa-plus"></i></button>
+          }
+        </h2>
+        <p class="px-5 py-2">{{ category?.description }}</p>
+      }
+    </div>
+    <!-- Products -->
+    <div class="d-flex flex-wrap justify-content-center">
+      @for (product of products; track $index) {
+        <app-product [product]="product"></app-product>
+      }
+      @if (products.length == 0 && !isLoadingProducts) {
+        <h2 class="text-center mt-3">No se encontraron productos.</h2>
+      }
+    </div>
+    @if (isLoadingProducts) {
+      <div class="d-flex mt-5 justify-content-center">
+        <div class="spinner-border">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    }
+  </div>
+  <div #marker></div>
+</main>

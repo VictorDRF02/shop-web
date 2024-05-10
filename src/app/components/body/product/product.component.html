@@ -1,0 +1,33 @@
+<a [href]="'shop/products/' + product?.id">
+    <div class="mx-4 product">
+        <!-- Image -->
+        <img [src]="images[0]" alt="product image">
+        <div class="row">
+            <!-- Details -->
+            <div [class]="'col-' + (quantity ? '6':(isAdmin? '8':'12'))">
+                <p class="my-0">{{ product?.name }}</p>
+                <p class="price">$ {{ product?.price }}</p>
+            </div>
+            <!-- Action Buttons -->
+            <div [class]="'col-' + (quantity ? '6':(isAdmin? '4':'0'))">
+                @if (!!quantity) {
+                    <!-- Quantity Buttons -->
+                    <button (click)="$event.preventDefault(); addQuantity(-1)" class="btn"><i
+                            class="fa fa-minus"></i></button>
+                    <span class="w-25">{{ quantityAux }}</span>
+                    <button (click)="$event.preventDefault(); addQuantity(1)" class="btn"><i
+                            class="fa fa-plus"></i></button>
+                    @if (quantity != quantityAux) {
+                        <button (click)="$event.preventDefault(); addToCart()" class="btn"><i class="fa fa-save"></i></button>
+                    }
+                } @else if (isAdmin) {
+                    <!-- Edit and Delete Buttons -->
+                    <button class="btn" (click)="$event.preventDefault(); openProductModal('edit', product)"><i
+                            class="fa fa-edit"></i></button>
+                    <button class="btn" (click)="$event.preventDefault(); openProductModal('delete', product)"><i
+                            class="fa fa-trash"></i></button>
+                }
+            </div>
+        </div>
+    </div>
+</a>

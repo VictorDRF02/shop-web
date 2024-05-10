@@ -1,0 +1,9 @@
+.product {
+  color: var(--color_principal);
+  max-width: 320px;
+  img {
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
+  }
+}

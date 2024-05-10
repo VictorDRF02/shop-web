@@ -1,0 +1,27 @@
+main {
+    font: var(--font_normal);
+    font-size: 1.2em;
+    color: var(--color_principal);
+
+    img {
+        max-height: 500px;
+        object-fit: cover;
+    }
+    .small-img {
+        border: solid 3px var(--color_secondary);
+        cursor: pointer;
+    }
+    .selected {
+        border: solid 3px var(--color_principal);
+    }
+
+    h2 {
+        font: var(--font_title);
+        font-size: 1.6em;
+    }
+
+    .btn-primary {
+        background-color: var(--color_secondary);
+        border: var(--color_secondary);
+    }
+}

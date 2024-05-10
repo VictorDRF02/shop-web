@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-end close-button">
+    <button (click)="close()" class="btn"><i class="fa fa-times"></i></button>
+</div>
+@if(user?.cart_items?.length != 0) {
+<div class="d-flex flex-wrap justify-content-center my-3">
+    <h2>Productos en el Carrito</h2>
+    <table class="table table-hover items">
+        <thead>
+            <tr>
+                <th scope="col">Imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+                <th scope="col">Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (cartItem of user?.cart_items; track $index) {
+            <tr>
+                <td><img [src]="cartItem.Product?.image" alt="img" class="product-img"></td>
+                <td>
+                    <p>{{ cartItem.Product?.name }}</p>
+                </td>
+                <td>
+                    <p>$ {{ cartItem.Product?.price }}</p>
+                </td>
+                <td><!-- Quantity Buttons -->
+                    <button (click)="$event.preventDefault(); addQuantity(-1, cartItem)" class="btn"><i
+                            class="fa fa-minus"></i></button>
+                    <span class="w-25">{{ cartItem.quantity }}</span>
+                    <button (click)="$event.preventDefault(); addQuantity(1, cartItem)" class="btn"><i
+                            class="fa fa-plus"></i></button>
+                </td>
+                <td>
+                    <p>$ {{ ((cartItem.Product?.price || 1)* cartItem.quantity).toFixed(2) }}</p>
+                </td>
+                <td><button (click)="$event.preventDefault(); deleteItem(cartItem)" class="btn"><i
+                            class="fa fa-trash"></i></button></td>
+                
+            </tr>
+            }
+            <tr>
+                <th>Total</th>
+                <td></td>
+                <td></td>
+                <td><p>{{ articles }}</p></td>
+                <td><p>$ {{ totalPrice?.toFixed(2) }}</p></td>
+                <td><button class="w-100 btn btn-primary">Comprar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+} @else {
+<h2 class="text-center mt-3">No tienes productos en tu carrito.</h2>
+<p class="fs-5 text-center">Prueba agregar algunos presionando en el botón "Añadir al carrito" dentro de un producto.
+</p>
+}

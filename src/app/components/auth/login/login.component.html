@@ -1,0 +1,39 @@
+<div class="container col-xl-10 col-xxl-8 px-4 py-5 h-100">
+  <div class="row align-items-center g-lg-5 py-3 mt-3 cont">
+    <!-- Shop Details -->
+    <div class="col-lg-7 text-center text-lg-start mt-0 mt-md-3">
+      <h1 class="display-4 lh-1 mb-3">
+        Todo Compras
+      </h1>
+      <p class="col-lg-10 fs-4 text-wrap">
+        ¡Bienvenido a nuestra tienda virtual! <span>Ofrecemos una amplia gama de
+          productos de alta calidad a precios competitivos. ¡Únete a nuestra comunidad de compradores satisfechos hoy
+          mismo! </span>
+      </p>
+    </div>
+    <!-- Form -->
+    <div class="col-md-10 mx-auto col-lg-5 form">
+      <div class="p-4 p-md-5 border rounded-3 bg-body-tertiary mt-5">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="John" #name />
+          <label for="floatingInput">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" #password />
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary"
+          (click)="login({ username: name.value, password: password.value })">
+          Iniciar Sesión
+        </button>
+        <a href="/register">
+          <button class="w-100 btn btn-lg btn-secondary mt-3">
+            Ir a Registrarse
+          </button>
+        </a>
+        <hr class="my-4" />
+        <small class="text-body-secondary">Presionando Inicio de Sesión acepta los términos de uso.</small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+@if (isLoading) {
+  <div class="d-flex mt-5 justify-content-center">
+    <div class="spinner-border">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p class="ms-3">Cargando producto. Espere...</p>
+  </div>
+} @else {
+  <main class="row mt-5">
+    <!-- Image section -->
+    <div class="col-md-6 p-4">
+      <img [src]="product?.image" alt="product image" class="w-100" />
+    </div>
+    <!-- Product Details section -->
+    <div class="col-md-6 p-4">
+      <h2 class="d-inline">
+        {{product?.name}}
+      </h2>
+      @if (isAdmin) {
+      <button class="btn" (click)="$event.preventDefault(); openProductModal('edit', product)"><i
+          class="fa fa-edit"></i></button>
+      <button class="btn" (click)="$event.preventDefault(); openProductModal('delete', product)"><i
+          class="fa fa-trash"></i></button>
+      }
+      <p class="price">$ {{product?.price}}</p>
+      <button class="w-50 btn btn-primary" (click)="addToCart()">Añadir al carrito</button>
+      <button (click)="addQuantity(-1)" class="btn"><i class="fa fa-minus"></i></button>
+      <span>{{ quantity }}</span>
+      <button (click)="addQuantity(1)" class="btn"><i class="fa fa-plus"></i></button>
+      <p>{{product?.description}}</p>
+      <!-- Tags -->
+      <div id="tags" class="d-flex">
+        @for (category of product?.Categories; track $index) {
+          @if (category.id != 1) {
+            <a [href]="'shop/categories/' + category.id">
+              <span class="badge tag mx-1">{{ category.name }}</span>
+            </a>
+          }
+        }
+      </div>
+    </div>
+  </main>
+}
